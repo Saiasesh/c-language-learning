@@ -1,52 +1,62 @@
-#include<stdio.h>
-int bubblesort(int *a[], int *n);
-int bubbleprint(int *a[],int *n);
-{
-	int i;
-	for(i=0;i<n;i++)
-	{
-		printf("&d";a[i]);
-	}
-}
-void swap(int *a,int *b);
-{
-	int temp;
-	temp=*a;
-	*a=*b;
-	*b=temp;
-}
+#include <stdio.h>
+
+void bubblesort(int *a, int n);
+void printArray(int *a, int n);
+void swap(int *x, int *y);
+
 int main()
 {
-	int a[100],n,i;
-	printf("enter the no.of elements to the array");
-	scanf("%d",&n);
-	printf("enter the elements to the array");
-	for(i=0;i<n;i++)
-	{
-		scanf("%d",&a[i]);
-	}
-	printf("array before sorting:");
-	for(i=0;i<n;i++)
-	{
-	printf("%d",a[i]);
-	}
-	bubblesort(&a,&n);
-	printf("array after sorting:");
-	bubbleprint(&a,&n);
-	return 0;
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", (arr + i));   // pointer input
+    }
+
+    printf("Array before sorting:\n");
+    printArray(arr, n);
+
+    bubblesort(arr, n);
+
+    printf("\nArray after sorting:\n");
+    printArray(arr, n);
+
+    return 0;
 }
-int bubblesort(int a[],int n)
+
+void bubblesort(int *a, int n)
 {
-	int i,j;
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<n-i-1)
-		{
-			if(a[j]>a[j+1])
-			{
-				void swap(&a[j],&a[j+1])
-			}
-		}
-	}
+    int i, j;
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = 0; j < n - i - 1; j++)
+        {
+            if(*(a + j) > *(a + j + 1))
+            {
+                swap((a + j), (a + j + 1));
+            }
+        }
+    }
 }
-	
+
+void printArray(int *a, int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", *(a + i));   // pointer printing
+    }
+}
+
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
