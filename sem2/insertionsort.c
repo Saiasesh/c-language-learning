@@ -30,7 +30,7 @@ int insertionsort(int a[],int n)
 	{
 		temp=a[i];
 		
-		for(j=i-1;j<=0;j--)
+		for(j=i-1;j>=0;j--)
 		{
 			if(a[j]>temp)
 			{
